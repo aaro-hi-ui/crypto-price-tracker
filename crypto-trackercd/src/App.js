@@ -2,7 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 
 import CryptoTable from './CryptoTable';
+import WebSocketMock from './WebSocketMock';
+import { useSelector } from 'react-redux';
+function App() {
+  const cryptoData = useSelector((state) => state.crypto.data);
 
+  return (
+    <div>
+      <WebSocketMock />
+      <CryptoTable data={cryptoData} />
+    </div>
+  );
+}
 const sampleData = [
   {
     id: 1,
